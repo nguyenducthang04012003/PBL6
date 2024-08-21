@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-body {
+.login-body {
     display: flex;
     background-color: #f6f5f7;
     justify-content: center;
@@ -30,7 +30,7 @@ h1.title {
     text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
 }
 
-p {
+.note {
     font-size: 14px;
     font-weight: 100;
     line-height: 20px;

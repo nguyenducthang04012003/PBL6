@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div className="form-container login-container">
             <form action="#">
-                <h1>Login here.</h1>
+                <h1 className='nick'>Login here.</h1>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <div className="content">

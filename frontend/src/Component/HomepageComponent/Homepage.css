@@ -1,0 +1,58 @@
+.home-container {
+  display: grid;
+  grid-template-rows: auto 1fr; 
+  height: 100vh;
+}
+
+.head-home {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: rgb(167, 179, 179);
+}
+
+.nick-name {
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1d8dd8;
+  text-shadow: none;
+}
+.Home{
+  width: 100px;
+  padding: 10px 20px;
+  border: 1px solid #1d8dd8;
+  background-color: #1d8dd8;
+  margin: 0 5px;
+}
+
+.content-home {
+  position: relative;
+  padding: 20px;
+  background-color: #f4f4f4; /* Chọn màu nền cho phần nội dung */
+}
+
+.head-content {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.fisrt {
+  margin: 10px 10px;
+}
+
+.reminder {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.imgHo {
+  width: 90%;
+}
+
