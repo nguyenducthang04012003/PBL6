@@ -5,15 +5,19 @@
     box-sizing: border-box;
 }
 
-.login-body {
-    display: flex;
-    background-color: #f6f5f7;
-    justify-content: center;
-    align-items: center;
+.containers {
+    background-color: #c3c2c4;
     flex-direction: column;
     font-family: "Poppins", sans-serif;
     overflow: hidden;
     height: 100vh;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 h1 {
@@ -45,7 +49,7 @@ span {
 }
 
 a {
-    color: #4bb6b7;
+    color: rgb(240 109 53);
     font-size: 14px;
     margin: 15px 0;
     transition: 0.3s ease-in-out;
@@ -84,8 +88,8 @@ a:hover {
 button {
     position: relative;
     border-radius: 20px;
-    border: 1px solid #4bb6b7;
-    background-color: #4bb6b7;
+    border: 1px solid rgb(240 109 53);
+    background-color: rgb(240 109 53);
     color: #fff;
     font-size: 15px;
     font-weight: 700;
@@ -97,7 +101,7 @@ button {
 }
 
 button:hover {
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 button:active {
@@ -219,7 +223,7 @@ input {
 }
 
 .overlay {
-  background-image: url('../../Share/Img/tải\ xuống.gif');
+  background-image: url('../../Share/Img/background.gif');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
