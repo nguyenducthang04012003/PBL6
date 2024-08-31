@@ -57,7 +57,7 @@ const Register = () => {
                     onChange={(e) => setRepassword(e.target.value)} 
                 />
                 {error && <p style={{ color: '#440000', fontSize: '10px' }}>{error}</p>} {/* Hiển thị thông báo lỗi nếu có */}
-                <button type='submit'>Sign Up</button>
+                <button className='btnLo' type='submit'>Sign Up</button>
             </form>
         </div>
     );

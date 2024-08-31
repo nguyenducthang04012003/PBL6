@@ -1,16 +1,10 @@
-/* ListUser.css */
-.ListUs-Container {
-  display: flex;
+.txtcontai{
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.taskbarAd {
-  width: 250px; /* Đặt chiều rộng của thanh taskbar */
-  background-color: #000000; /* Hoặc màu nền bạn muốn */
-  padding: 20px; /* Khoảng cách bên trong thanh taskbar */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Tạo bóng cho thanh taskbar */
-}
-
-.ListUs {
-  flex: 1; /* Chiếm hết không gian còn lại */
-  padding: 20px; /* Khoảng cách bên trong nội dung */
+.txt-listUs {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Tahoma", Geneva, Sans-Serif;
 }

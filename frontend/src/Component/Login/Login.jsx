@@ -42,7 +42,7 @@ const Login = () => {
                 <div className="content">
                     <a href="/forgot" className="pass-link">Forgot password?</a>
                 </div>
-                <button type="submit">Login</button>
+                <button className='btnLo' type="submit">Login</button>
             </form>
         </div>
     );
