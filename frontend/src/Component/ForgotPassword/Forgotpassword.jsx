@@ -4,7 +4,7 @@ import Taskbar from '../../Share/Taskbar_Top/TaskbarTop'
 function Forgotpassword() {
   return (
     <div className='containerForgot'>
-      <Taskbar/>
+      <Taskbar/> 
       <div>
         <h1>Đã làm gì đâu</h1>
         <h1>Đã chạm vào đâuuuuuuuu</h1>

@@ -43,19 +43,14 @@ h1.title {
     text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
 }
 
-span {
-    font-size: 14px;
-    margin-top: 25px;
-}
-
-a {
+.pass-link {
     color: rgb(240 109 53);
     font-size: 14px;
     margin: 15px 0;
     transition: 0.3s ease-in-out;
 }
 
-a:hover {
+.pass-link:hover {
     color: #4bb6b7;
 }
 
@@ -85,7 +80,7 @@ a:hover {
     padding-left: 5px;
 }
 
-button {
+.btnLo {
     position: relative;
     border-radius: 20px;
     border: 1px solid rgb(240 109 53);
@@ -100,36 +95,36 @@ button {
     transition: 0.3s ease-in-out;
 }
 
-button:hover {
+.btnLo:hover {
     letter-spacing: 2px;
 }
 
-button:active {
+.btnLo:active {
     transform: scale(0.95);
 }
 
-button:focus {
+.btnLo:focus {
     outline: none;
 }
 
-button.ghost {
+.btnLo.ghost {
     background-color: rgba(225, 225, 225, 0.2);
     border: 2px solid #fff;
     color: #fff;
 }
 
-button.ghost i {
+.btnLo.ghost i {
     position: absolute;
     opacity: 0;
     transition: 0.3s ease-in-out;
 }
 
-button.ghost-i.register {
+.btnLo.ghost-i.register {
     right: 70px;
     opacity: 1;
 }
 
-button.ghost-i.login {
+.btnLo.ghost-i.login {
     left: 70px;
     opacity: 1;
 }

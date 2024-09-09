@@ -15,9 +15,7 @@ const Homepage = () => {
                 <div>
                     <p className='nick-name'>Trinity</p>
                 </div>
-                <div className='btnLo'>
-                    <button className='Home' onClick={handleLoginClick}>Login/SignUp</button> {/* Thêm sự kiện onClick */}
-                </div>
+                <button className='btnLo Home' onClick={handleLoginClick}>Login/SignUp</button> {/* Thêm sự kiện onClick */}
             </div>
             <div className='content-home'>
                 <div className='head-content'>
@@ -25,7 +23,7 @@ const Homepage = () => {
                         <p className='first'>Kết nối và chia sẻ</p>
                         <p style={{ marginTop: 20 }}>Trang mạng xã hội trò chuyện để kết nối và chia sẻ với mọi người. 
                         Thách thức bản thân qua các nhiệm vụ và chia sẻ câu chuyện của bạn.</p>
-                        <button className='Home' id='Truycap' onClick={handleLoginClick}>Truy cập ngay</button> {/* Thêm sự kiện onClick */}
+                        <button className='btnLo Home' id='Truycap' onClick={handleLoginClick}>Truy cập ngay</button> {/* Thêm sự kiện onClick */}
                         <p className='reminder'>“Nhanh chóng và hoạt động hoàn hảo mỗi lần.”</p>
                         <p style={{ fontStyle: "italic" }}>--Jack Brown--</p>
                     </div>
@@ -77,7 +75,7 @@ const Homepage = () => {
                         <p className='texttrip'>“Mạng Xã Hội Trò Chuyện là một trong những dịch vụ tốt nhất tôi từng sử dụng. </p>
                         <p className='texttrip'>Trang của tôi được chăm sóc cẩn thận và chuyên nghiệp.” - Yan Scott</p>
                     </div>
-                    <button className='Home' id='Truycapbottom' onClick={handleLoginClick}>Truy cập trang</button> {/* Thêm sự kiện onClick */}
+                    <button className='btnLo Home' id='Truycapbottom' onClick={handleLoginClick}>Truy cập trang</button> {/* Thêm sự kiện onClick */}
                 </div>
             </div>
         </div> 
