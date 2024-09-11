@@ -7,6 +7,7 @@ import ListUser from "./admin/ListUser/ListUser";
 import TaskbarAdmin from "./Share/Taskbar_Left/TaskbarAdmin";
 import ListPost from "./admin/ListPost/ListPost";
 import Post from "./admin/ListPost/Post";
+import TextEditor from "./Component/UtilComponent/TextEditor";
 import "./App.css"; 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<Forgotpassword />} />
+        <Route path="/text" element={<TextEditor />} />
 
         {/* Routes for admin pages with TaskbarAdmin */}
         <Route path="/admin/*" element={
