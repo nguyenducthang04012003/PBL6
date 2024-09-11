@@ -1,0 +1,11 @@
+.btnView {
+  margin-right: 10px;
+}
+
+.btnView:hover {
+  color: aquamarine;
+}
+
+.btnDele:hover {
+  color: red;
+}

@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
-import { Table, Button, Input } from 'antd';
-import { SearchOutlined } from "@ant-design/icons";
+import { Table, Button, Input, Modal } from 'antd';
+import { SearchOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import "./ListUser.css"
+import {
+  successNotification,
+  errorNotification,
+  warningNotification,
+} from '../../Share/Notification/Notification';
 
 function ListUser(props) {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const dataSource = [
     {
@@ -13,7 +20,6 @@ function ListUser(props) {
       id: '001',
       email: 'mike@example.com',
       gender: 'Nam',
-      birthday: '1992-03-15',
       phone: '+1234567890',
       role: 'Quản trị viên',
       status: 'Chưa khóa',
@@ -23,7 +29,6 @@ function ListUser(props) {
       id: '002',
       email: 'john@example.com',
       gender: 'Nữ',
-      birthday: '1982-07-22',
       phone: '+0987654321',
       role: 'Người dùng',
       status: 'Đã khóa',
@@ -33,7 +38,6 @@ function ListUser(props) {
       id: '003',
       email: 'alice@example.com',
       gender: 'Nữ',
-      birthday: '1995-01-30',
       phone: '+1122334455',
       role: 'Quản trị viên',
       status: 'Chưa khóa',
@@ -43,7 +47,6 @@ function ListUser(props) {
       id: '004',
       email: 'bob@example.com',
       gender: 'Nam',
-      birthday: '1988-04-12',
       phone: '+2233445566',
       role: 'Người dùng',
       status: 'Đã khóa',
@@ -53,7 +56,6 @@ function ListUser(props) {
       id: '005',
       email: 'charlie@example.com',
       gender: 'Nam',
-      birthday: '1990-06-25',
       phone: '+3344556677',
       role: 'Người dùng',
       status: 'Chưa khóa',
@@ -63,7 +65,6 @@ function ListUser(props) {
       id: '006',
       email: 'diana@example.com',
       gender: 'Nữ',
-      birthday: '1993-08-18',
       phone: '+4455667788',
       role: 'Người dùng',
       status: 'Đã khóa',
@@ -73,7 +74,6 @@ function ListUser(props) {
       id: '007',
       email: 'eva@example.com',
       gender: 'Nữ',
-      birthday: '1985-12-05',
       phone: '+5566778899',
       role: 'Quản trị viên',
       status: 'Chưa khóa',
@@ -83,7 +83,6 @@ function ListUser(props) {
       id: '008',
       email: 'frank@example.com',
       gender: 'Nam',
-      birthday: '1991-09-17',
       phone: '+6677889900',
       role: 'Người dùng',
       status: 'Đã khóa',
@@ -93,7 +92,6 @@ function ListUser(props) {
       id: '009',
       email: 'grace@example.com',
       gender: 'Nữ',
-      birthday: '1989-02-14',
       phone: '+7788990011',
       role: 'Quản trị viên',
       status: 'Chưa khóa',
@@ -103,7 +101,6 @@ function ListUser(props) {
       id: '010',
       email: 'henry@example.com',
       gender: 'Nam',
-      birthday: '1994-11-11',
       phone: '+8899001122',
       role: 'Người dùng',
       status: 'Đã khóa',
@@ -113,12 +110,60 @@ function ListUser(props) {
       id: '011',
       email: 'isabel@example.com',
       gender: 'Nữ',
-      birthday: '1997-05-20',
       phone: '+9900112233',
       role: 'Quản trị viên',
       status: 'Chưa khóa',
     },
   ];
+
+  const handleViewProfile = (record) => {
+    // Thực hiện logic khi xem chi tiết người dùng
+    console.log("Xem chi tiết người dùng:", record);
+    alert(`Chi tiết người dùng: \nID: ${record.id}\nEmail: ${record.email}`);
+  };
+
+  const showModal = (record) => {
+    setSelectedUser(record);
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    if (selectedUser) {
+      if (selectedUser.status === 'Đã khóa') {
+        // Nếu tài khoản đã bị khóa, hiển thị thông báo cảnh báo
+        warningNotification(
+          "Tài khoản đã bị khóa", 
+        );
+      } else {
+        // Nếu tài khoản chưa bị khóa, thực hiện khóa tài khoản và hiển thị thông báo thành công
+        console.log("Đã khóa tài khoản người dùng:", selectedUser);
+        successNotification(
+          "Khóa tài khoản thành công", 
+        );
+        // Cập nhật trạng thái của tài khoản
+        const updatedDataSource = dataSource.map(user => 
+          user.key === selectedUser.key 
+          ? { ...user, status: 'Đã khóa' } 
+          : user
+        );
+        // Cập nhật lại dữ liệu nguồn của bảng (nếu cần thiết)
+        // setDataSource(updatedDataSource);
+      }
+      
+      // Đóng modal và reset trạng thái
+      setIsModalVisible(false);
+      setSelectedUser(null);
+    } else {
+      errorNotification(
+        "Khóa tài khoản thất bại", 
+      );
+    }
+  };
+  
+  const handleCancel = () => {
+    console.log("Đóng modal mà không khóa tài khoản");
+    setIsModalVisible(false);
+  };
 
   const columns = [
     {
@@ -193,11 +238,6 @@ function ListUser(props) {
       onFilter: (value, record) => record.gender === value,
     },
     {
-      title: 'Ngày sinh',
-      dataIndex: 'birthday',
-      key: 'birthday',
-    },
-    {
       title: 'Điện thoại',
       dataIndex: 'phone',
       key: 'phone',
@@ -252,6 +292,13 @@ function ListUser(props) {
       title: 'Vai trò',
       dataIndex: 'role',
       key: 'role',
+      align: "left",
+      render: (role) => <p>{role}</p>,
+      filters: [
+        { text: "Quản trị viên", value: "Quản trị viên" },
+        { text: "Người dùng", value: "Người dùng" },
+      ],
+      onFilter: (value, record) => record.role === value,
     },
     {
       title: 'Trạng thái',
@@ -265,25 +312,58 @@ function ListUser(props) {
       ],
       onFilter: (value, record) => record.status === value,
     },
+    {
+      title: 'Tùy chọn',
+      key: 'action',
+      align: 'left',
+      render: (text, record) => (
+        <div className="buttonContainer">
+          <Button
+            className="btnPrf"
+            onClick={() => handleViewProfile(record)}
+          >
+            <UserOutlined />
+          </Button>
+          <Button
+            className="btnDel"
+            onClick={() => showModal(record)}
+          >
+            <LockOutlined />
+          </Button>
+        </div>
+      ),
+    },
+    
   ];
 
   return (
-    <div>
+    <div className='List-container'>
       <div className='txtcontai'>
         <p className='txt-listUs'>Danh sách người dùng Trinity</p>  
       </div>
-      <Table 
-      dataSource={dataSource} 
-      columns={columns} 
-      pagination={{
-        current: page,
-        pageSize: 7,
-        onChange: (page, pageSize) => {
-          setPage(page);
-          setPageSize(pageSize);
-        },
-      }}
-      />
+      <div className='tbl-listUs'>
+        <Table 
+          dataSource={dataSource} 
+          columns={columns} 
+          pagination={{
+            current: page,
+            pageSize: 10,
+            onChange: (page, pageSize) => {
+              setPage(page);
+              setPageSize(pageSize);
+            },
+          }}
+        />
+      </div>
+
+      <Modal 
+        title="Xác nhận khóa tài khoản" 
+        visible={isModalVisible} 
+        onOk={handleOk} 
+        onCancel={handleCancel}
+      >
+        <p>Bạn có chắc chắn muốn khóa tài khoản của người dùng {selectedUser?.email} không?</p>
+      </Modal>
     </div>
   );
 }

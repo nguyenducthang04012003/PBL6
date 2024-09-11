@@ -1,0 +1,26 @@
+.article-container {
+  background-color: #eeebeb;
+  border-radius: 30px;
+  padding: 30px;
+}
+
+.article-head{
+  display: flex;
+}
+
+.avtPost {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.namePo {
+  font-size: 160%;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.article-body {
+  padding: 20px 0 20px 0;
+}

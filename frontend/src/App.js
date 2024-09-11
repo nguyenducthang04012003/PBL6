@@ -6,6 +6,7 @@ import Forgotpassword from "./Component/ForgotPassword/Forgotpassword";
 import ListUser from "./admin/ListUser/ListUser";
 import TaskbarAdmin from "./Share/Taskbar_Left/TaskbarAdmin";
 import ListPost from "./admin/ListPost/ListPost";
+import Post from "./admin/ListPost/Post";
 import "./App.css"; 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Routes>
                 <Route path="listUs" element={<ListUser />} />
                 <Route path="listPo" element={<ListPost />} />
+                <Route path="listPo/Post" element={<Post />} />
               </Routes>
             </div>
           </div>
