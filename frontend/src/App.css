@@ -3,7 +3,26 @@
   display: flex;
 }
 
+.custom-menu {
+  width: 256px; /* Thay đổi giá trị theo nhu cầu của bạn */
+}
+
+.taskbar-container {
+  position: fixed; /* Đặt thanh Taskbar cố định */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Chiều cao của Taskbar */
+  z-index: 1000; /* Đặt z-index để đảm bảo nó ở trên cùng */
+}
+
+
 .admin-content {  
-  padding: 20px;
   flex: 1; 
+  margin-left: 220px; /* Để nội dung không bị che khuất bởi Taskbar */
+}
+
+img {
+  width: 100%; /* Đặt chiều rộng của ảnh bằng 100% chiều rộng của phần tử chứa */
+  height: auto; /* Đảm bảo chiều cao của ảnh tự động điều chỉnh theo tỷ lệ của chiều rộng */
+  object-fit: cover; /* Giữ tỷ lệ khung hình của ảnh và cắt bỏ phần vượt ra ngoài nếu cần */
 }

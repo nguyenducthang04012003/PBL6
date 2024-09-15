@@ -1,0 +1,44 @@
+.aboutUs {
+  display: flex;
+  align-items: stretch;
+  background-color: #4e4f5063;
+  padding: 0px;
+  border-radius: 10px;
+}
+
+.profileMenu {
+  display: inline-block;
+  width: 250px; /* Đặt chiều rộng cho thanh menu */
+  background-color: transparent; 
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.menuTitle {
+  color: #ffffff; /* Màu chữ trắng */
+  font-size: 1.2rem; /* Kích thước chữ */
+  font-weight: bold;
+  margin: 0 0 10px 10px; 
+}
+
+.customMenu .ant-menu {
+  background-color: transparent; /* Đặt nền trong suốt cho menu */
+  border: none; /* Xóa border mặc định */
+  background: transparent !important;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-dark, 
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-dark>.ant-menu {
+    background: transparent !important; /* Thay đổi thành màu nền mong muốn */
+}
+
+.divider {
+  width: 1px;
+  background-color: #ffffff4a; 
+  height: 52vh; 
+  margin-right: 15px;
+}
+
+.contentAbout {
+  padding: 15px 10px;
+}

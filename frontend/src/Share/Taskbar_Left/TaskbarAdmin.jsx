@@ -4,7 +4,6 @@ import {
   MailOutlined,
   CloseCircleOutlined,
   CheckCircleOutlined,
-  LogoutOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
@@ -68,7 +67,7 @@ const TaskbarAdmin = () => {
     <div className="taskbar-container">
       <Menu
         style={{
-          width: 256,
+          width: 220,
           height: 'calc(100vh - 48px)', 
           overflowY: 'auto',
         }}
@@ -78,9 +77,6 @@ const TaskbarAdmin = () => {
         theme={theme}
         items={items}
       />
-      <Link to="/" className="pass-link signout">
-        <LogoutOutlined /> Sign Out
-      </Link>
     </div>
   );
 };

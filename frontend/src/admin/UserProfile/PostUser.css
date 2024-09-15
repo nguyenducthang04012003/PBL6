@@ -1,0 +1,53 @@
+.PostUser {
+  background-color: #4e4f5063;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.headPost {
+  display: flex;
+  align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+}
+
+.avtPostUser {
+  width: 40px;
+  height: 40px; /* Đảm bảo ảnh hình tròn với chiều cao bằng chiều rộng */
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.namePostUser {
+  color: #fff;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.btnPostUs {
+  background: transparent; /* Xóa nền nếu cần */
+  border: none; /* Xóa viền nếu cần */
+  color: #fff; /* Màu chữ của nút */
+  margin-left: auto; /* Đẩy nút ra cuối cùng bên phải */
+}
+
+.tusPostUs {
+  color: #fff;
+  margin: 10px 0;
+}
+
+.btnPostUser{
+  width: 33%;
+  background-color: #45515e00;
+  border: 1px solid #4e4f5000;
+  color: #fff;
+}
+
+.btnPostUser:hover {
+  background-color: #545658 !important;
+  border: 1px solid #545658 !important;
+  color: #fff !important;
+}
+
+#noneClick {
+  pointer-events: none;  /* Ngăn không cho bấm vào nút */
+  opacity: 0.5;          /* Làm mờ nút để nó trông như bị vô hiệu hóa */
+}

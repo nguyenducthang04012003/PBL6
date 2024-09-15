@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Table, Button, Input, Modal } from 'antd';
 import { SearchOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
+import { useNavigate } from 'react-router-dom';
 import "./ListUser.css"
 import {
   successNotification,
@@ -13,6 +14,7 @@ function ListUser(props) {
   const [pageSize, setPageSize] = useState(10);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   const dataSource = [
     {
@@ -119,7 +121,7 @@ function ListUser(props) {
   const handleViewProfile = (record) => {
     // Thực hiện logic khi xem chi tiết người dùng
     console.log("Xem chi tiết người dùng:", record);
-    alert(`Chi tiết người dùng: \nID: ${record.id}\nEmail: ${record.email}`);
+    navigate(`./${record.email}`);
   };
 
   const showModal = (record) => {
@@ -356,14 +358,19 @@ function ListUser(props) {
         />
       </div>
 
-      <Modal 
-        title="Xác nhận khóa tài khoản" 
-        visible={isModalVisible} 
-        onOk={handleOk} 
+      <Modal
+        title={selectedUser?.status === 'Đã khóa' ? "Xác nhận mở khóa tài khoản" : "Xác nhận khóa tài khoản"}
+        visible={isModalVisible}
+        onOk={handleOk}
         onCancel={handleCancel}
-      >
-        <p>Bạn có chắc chắn muốn khóa tài khoản của người dùng {selectedUser?.email} không?</p>
-      </Modal>
+      >   
+      <p>
+        {selectedUser?.status === 'Đã khóa'
+          ? `Bạn có chắc chắn muốn mở khóa tài khoản của người dùng ${selectedUser?.email} không?`
+          : `Bạn có chắc chắn muốn khóa tài khoản của người dùng ${selectedUser?.email} không?`}
+      </p>
+    </Modal>
+
     </div>
   );
 }

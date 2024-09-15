@@ -6,7 +6,7 @@ function Post(props) {
   return (
     <div className='article-container'>
       <div className='article-head'>
-        <img src="/Image/avt.jpg" alt="avt" className='avtPost'/>
+        <img src="/Image/avt.jpg" alt="avt" className='avtListPost'/>
         <div>
           <p className='namePo'>Email</p>
           <p>Time</p>

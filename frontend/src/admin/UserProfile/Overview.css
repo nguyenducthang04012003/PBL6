@@ -1,0 +1,29 @@
+/* Căn chỉnh icon và nội dung p trong overviewpublic */
+.overviewpublic {
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 20px; /* Khoảng cách giữa biểu tượng và văn bản */
+  margin-bottom: 20px; /* Khoảng cách giữa các mục */
+}
+
+.headOverview {
+  margin: 10px 0 20px 0;
+}
+
+.headOver {
+  color: #ffffffd8; /* Màu chữ trắng */
+  font-size: 1rem; /* Kích thước chữ */
+  font-weight: bold;
+  margin: 0;
+}
+
+.iconOver {
+  color: #727B87;
+  font-size: 1.2rem; /* Kích thước biểu tượng */
+  line-height: 1; /* Căn chỉnh tốt hơn với văn bản */
+}
+
+.txtOver {
+  color: #ffffffd8;
+  margin: 0; /* Đảm bảo không có khoảng cách thừa xung quanh văn bản */
+}
