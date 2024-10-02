@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import uploadFile from '../../api/uploadImage';
 
 const images = []
 
-const uploadImage = function () {
+const uploadImage = async function () {
     let fileInput;
     if (fileInput == null) {
         fileInput = document.createElement('input');
@@ -33,7 +33,6 @@ const uploadImage = function () {
                     }
 
                     images.push(url);
-
                     console.log('Image URL:', url);
                 } catch (err) {
                     console.error(err);
@@ -45,41 +44,54 @@ const uploadImage = function () {
     fileInput.click();
 }
 
-const modules = {
-    toolbar: {
-        container: [
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ font: [] }],
-            [{ size: [] }],
-            ["bold", "italic", "underline", "strike", "blockquote"],
-            [
-                { list: "ordered" },
-                { list: "bullet" },
-                { indent: "-1" },
-                { indent: "+1" }
-            ],
-            ["link", "image", "video"],
-            ["code-block"],
-            ["clean"],
-        ],
-        handlers: {
-            image: uploadImage
-        }
-    },
-    clipboard: {
-        matchVisual: false,
-    },
-}
 
-const TextEditor = () => {
-    const [value, setValue] = useState('');
-    let currentImages = []
+const TextEditor = ({onChange, onImageChange}) => {
     const handleChange = (content) => {
         setValue(content);
         currentImages = images;
+        onChange(content, images);
         console.log('Current Editor Content:', content);
         console.log('Current Editor Content:', images);
     };
+    
+    const handleImage = () => {
+        currentImages = images;
+        onImageChange(images);
+    }
+
+    useEffect(() => {
+        const interval = setInterval(handleImage, 1000);
+
+        return () => clearInterval(interval);
+    }, [images]); // Depend on images to update if they change
+
+    const modules = {
+        toolbar: {
+            container: [
+                [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                [{ font: [] }],
+                [{ size: ['small', false, 'large', 'huge'] }], // Thêm tuỳ chọn kích thước
+                ["bold", "italic", "underline", "strike", "blockquote"],
+                [
+                    { list: "ordered" },
+                    { list: "bullet" },
+                    { indent: "-1" },
+                    { indent: "+1" }
+                ],
+                ["link", "image", "video"],
+                ["code-block"],
+                ["clean"],
+            ],
+            handlers: {
+                image: uploadImage
+            }
+        },
+        clipboard: {
+            matchVisual: false,
+        },
+    }
+    const [value, setValue] = useState('');
+    let currentImages = []
 
     return (
         <div>
@@ -90,17 +102,27 @@ const TextEditor = () => {
                 modules={modules}
             />
             <div
-                id="imagesContainer"
                 style={{
                     maxHeight: '250px',
-                    overflowX: 'scroll',
                     border: '1px solid #ccc',
                     marginTop: '10px',
                     padding: '5px',
                     display: 'flex',
-                }}
-            >
-                {/* Images will be appended here */}
+                    flexDirection: 'column',
+                }}>
+                    <div style={{
+                        fontWeight: '500',
+                        fontSize: '16px',
+                        paddingLeft: '10px'
+                    }}>Ảnh của bạn</div>
+                <div
+                    id="imagesContainer"
+                    style={{
+                        overflowX: 'auto',
+                    }}
+                >
+                    {/* Images will be appended here */}
+                </div>
             </div>
         </div>
     );
