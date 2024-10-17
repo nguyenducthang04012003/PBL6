@@ -30,7 +30,7 @@ function UserProfile() {
           <Menu
             mode="horizontal"
             theme="light" // Hoặc "dark" tùy vào chủ đề bạn muốn
-            style={{ lineHeight: '64px' }} // Tùy chỉnh chiều cao của menu
+            style={{ lineHeight: '64px' }} // Tùy ch ỉnh chiều cao của menu
           >   
             <Menu.Item key="1">
               <Link to="post">Bài viết</Link>

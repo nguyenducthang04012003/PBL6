@@ -1,4 +1,10 @@
+.containerPostUs {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+}y
+
 .PostUser {
+  width: 600px;
   background-color: #4e4f5063;
   padding: 25px;
   border-radius: 10px;
